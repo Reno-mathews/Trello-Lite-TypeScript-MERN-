@@ -12,6 +12,6 @@ router.delete("/:id", deleteTask);
 
 router.put("/:id", updateTask);
 
-router.patch("/:id/toggle", toggleTask);
+router.patch("/:id", toggleTask);
 
 export default router;

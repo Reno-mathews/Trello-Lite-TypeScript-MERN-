@@ -1,5 +1,6 @@
 import express from "express";
 
+import Task from "../models/Task.js";
 import { createTasks, deleteTask, getTasks, toggleTask, updateTask } from "../controllers/taskController.js";
 
 const router = express.Router();
@@ -12,6 +13,6 @@ router.delete("/:id", deleteTask);
 
 router.put("/:id", updateTask);
 
-router.patch("/:id/toggle", toggleTask);
+router.patch("/:id", toggleTask);
 
 export default router;

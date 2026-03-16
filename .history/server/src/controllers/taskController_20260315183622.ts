@@ -1,6 +1,6 @@
 import Task from "../models/Task.js";
 
-import type { Request, Response} from "express";
+import { Request, Response} from "express";
 
 export const getTasks = async(req: Request ,res: Response) => {
     const tasks = await Task.find();

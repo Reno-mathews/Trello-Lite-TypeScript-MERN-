@@ -1,6 +1,6 @@
 import Task from "../models/Task.js";
 
-import type { Request, Response} from "express";
+import { Request, Response} from "express";
 
 export const getTasks = async(req: Request ,res: Response) => {
     const tasks = await Task.find();
@@ -34,10 +34,6 @@ export const updateTask = async (req: Request, res: Response) => {
 
 export const toggleTask = async (req: Request, res: Response) => {
     const task = await Task.findById(req.params.id);
-
-    if (!task) {
-        return res.status(404).json({ message: "Task not found" });
-    }
 
     task.completed = !task.completed;
 

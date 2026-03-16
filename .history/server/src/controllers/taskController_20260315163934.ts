@@ -1,24 +1,26 @@
 import Task from "../models/Task.js";
 
-import type { Request, Response} from "express";
+import router from "../routes/tasks.js";
 
-export const getTasks = async(req: Request ,res: Response) => {
+
+
+export const getTasks = async(req ,res) => {
     const tasks = await Task.find();
     res.json(tasks);
 };
 
-export const createTasks = async(req: Request, res: Response) => {
+export const createTask = async(req, res) => {
     const task = new Task(req.body);
     const saved = await task.save();
     res.json(saved);
 };
 
-export const deleteTask = async(req: Request, res: Response) => {
+export const deleteTask = async(req, res) => {
     await Task.findByIdAndDelete(req.params.id);
     res.json({ message: "Deleted" });
 }
 
-export const updateTask = async (req: Request, res: Response) => {
+export const updateTask = async (req, res) => {
     try {
         const updatedTask = await Task.findByIdAndUpdate(
             req.params.id,
@@ -32,12 +34,8 @@ export const updateTask = async (req: Request, res: Response) => {
     }
 }
 
-export const toggleTask = async (req: Request, res: Response) => {
+export const toggleTask = async (req, res) => {
     const task = await Task.findById(req.params.id);
-
-    if (!task) {
-        return res.status(404).json({ message: "Task not found" });
-    }
 
     task.completed = !task.completed;
 
@@ -45,4 +43,4 @@ export const toggleTask = async (req: Request, res: Response) => {
 
     res.json(task);
 
-};
+}
