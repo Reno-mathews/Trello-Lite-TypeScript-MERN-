@@ -24,7 +24,5 @@ function App() {
       <TaskInput fetchTasks={fetchTasks} />
       <TaskList tasks={tasks} fetchTasks={fetchTasks} />
     </div>
-  );
+  )
 }
-
-export default App;
