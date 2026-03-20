@@ -1,6 +1,6 @@
-import {useEffect, useState } from "react";
+import {useEFfect, useState } from "react";
 import API from "./api";
-import type { Task } from "./types/Task";
+import { Task } from "./types/Task";
 
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
