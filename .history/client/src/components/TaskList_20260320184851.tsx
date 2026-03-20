@@ -1,5 +1,5 @@
 import TaskItem from "./TaskItem";
-import type { Task } from "../types/Task";
+import { Task } from "../types/Task";
 
 export default function TaskList({ tasks, fetchTasks }: any) {
     return (
