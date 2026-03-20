@@ -13,14 +13,5 @@ export default function TaskInput({ fetchTasks }: any) {
         fetchTasks();
     };
 
-    return (
-        <div>
-            <input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="Enter Task"
-            />
-            <button onClick={addTask}>Add</button>
-        </div>
-    );
+    
 }
